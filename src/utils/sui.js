@@ -19,7 +19,7 @@ async function buildTransaction({amount, fromKey, sendTo}) {
     const tx = new Transaction();
     const keypair = Ed25519Keypair.fromSecretKey(fromKey)
 
-    const [coin] = tx.splitCoins(tx.gas, [Decimal.mul(amount, 1000000000)]);
+    const [coin] = tx.splitCoins(tx.gas, [Decimal.mul(amount, 1000000000).toNumber()]);
 
     tx.transferObjects([coin], sendTo);
 
